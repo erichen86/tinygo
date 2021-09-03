@@ -432,7 +432,7 @@ func readSVD(path, sourceURL string) (*Device, error) {
 		File:             filepath.Base(path),
 		DescriptorSource: sourceURL,
 		Name:             device.Name,
-		NameLower:        strings.ToLower(device.Name),
+		NameLower:        strings.ReplaceAll(strings.ToLower(device.Name), "-", "_"),
 		Description:      strings.TrimSpace(device.Description),
 		LicenseBlock:     licenseBlock,
 	}
